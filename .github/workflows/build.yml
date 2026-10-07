@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install python-barcode pillow "qrcode[pil]" pyinstaller
-      - run: pyinstaller --noconfirm --windowed --name LabelMakerGUI label_maker_gui.py
+      - run: pyinstaller --noconfirm --windowed --collect-data barcode --name LabelMakerGUI label_maker_gui.py
       - name: Windows installer
         if: runner.os == 'Windows'
         run: |
