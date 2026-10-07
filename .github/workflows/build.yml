@@ -11,8 +11,16 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install python-barcode pillow "qrcode[pil]" pyinstaller
-      - run: pyinstaller --onefile --name BarcodeMaker barcode_maker.py
-      - run: pyinstaller --onefile --name QRMaker qr_maker.py
-      - run: pyinstaller --onefile --windowed --name LabelMakerGUI label_maker_gui.py
+      - run: pyinstaller --noconfirm --windowed --name LabelMakerGUI label_maker_gui.py
+      - name: Windows installer
+        if: runner.os == 'Windows'
+        run: |
+          choco install innosetup -y --no-progress
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\windows.iss
+      - name: macOS installer
+        if: runner.os == 'macOS'
+        run: ./installer/build_mac.sh
       - uses: actions/upload-artifact@v4
-        with: { name: BarcodeMaker-${{ matrix.os }}, path: dist/* }
+        with:
+          name: YellowLabelMaker-${{ matrix.os }}
+          path: installer_out/*

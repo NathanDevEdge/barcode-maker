@@ -19,3 +19,6 @@ Run `BarcodeMaker` (or `python barcode_maker.py`), paste the CSV path when asked
 ## Build
 Executables for Windows and macOS are built by the GitHub Actions workflow (Actions tab -> Build -> artifacts),
 or locally with `pip install python-barcode pillow pyinstaller` then `pyinstaller --onefile --name BarcodeMaker barcode_maker.py`.
+
+## Installers
+GitHub Actions produces `YellowLabelMaker-Setup.exe` (Windows) and `YellowLabelMaker.pkg` (macOS). Everything the app needs is bundled, so end users install nothing else.
