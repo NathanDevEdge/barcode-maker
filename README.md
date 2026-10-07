@@ -10,6 +10,9 @@ Converts a product CSV into yellow barcode images (black bars on yellow, PNG).
 Same idea, but encodes the `Supplier Code` column as a QR code (black on yellow). Output goes to `Yellow QR Codes`.
 Run `QRMaker` (or `python qr_maker.py`).
 
+## GUI
+`LabelMakerGUI` (or `python label_maker_gui.py`): pick a CSV, tick Barcodes and/or QR codes, click Generate.
+
 ## Use
 Run `BarcodeMaker` (or `python barcode_maker.py`), paste the CSV path when asked.
 
