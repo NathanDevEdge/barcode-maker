@@ -4,7 +4,7 @@ import os
 import subprocess
 import sys
 import tkinter as tk
-from tkinter import filedialog, scrolledtext, ttk
+from tkinter import filedialog, messagebox, scrolledtext, ttk
 
 import barcode_maker
 import qr_maker
@@ -76,6 +76,9 @@ class App(tk.Tk):
         for b in (self.btn_bc, self.btn_qr):
             b.configure(state="normal")
         self.open_btn.configure(state="normal")
+        if os.path.isdir(self.out_dir) and "Done." in buf.getvalue():
+            if messagebox.askyesno("Finished", f"Saved to:\n{self.out_dir}\n\nOpen this folder now?"):
+                open_folder(self.out_dir)
 
     def open_out(self):
         if self.out_dir and os.path.isdir(self.out_dir):
