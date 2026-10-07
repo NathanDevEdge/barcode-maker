@@ -11,7 +11,7 @@ Same idea, but encodes the `Supplier Code` column as a QR code (black on yellow)
 Run `QRMaker` (or `python qr_maker.py`).
 
 ## GUI
-`LabelMakerGUI` (or `python label_maker_gui.py`): pick a CSV, tick Barcodes and/or QR codes, click Generate.
+`LabelMakerGUI` (or `python label_maker_gui.py`): pick a CSV, then click **Generate Barcodes** and/or **Generate QR Codes**.
 
 ## Use
 Run `BarcodeMaker` (or `python barcode_maker.py`), paste the CSV path when asked.
