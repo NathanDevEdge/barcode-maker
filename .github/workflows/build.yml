@@ -10,7 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install python-barcode pillow pyinstaller
+      - run: pip install python-barcode pillow "qrcode[pil]" pyinstaller
       - run: pyinstaller --onefile --name BarcodeMaker barcode_maker.py
+      - run: pyinstaller --onefile --name QRMaker qr_maker.py
       - uses: actions/upload-artifact@v4
         with: { name: BarcodeMaker-${{ matrix.os }}, path: dist/* }

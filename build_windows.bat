@@ -1,3 +1,4 @@
-pip install python-barcode pillow pyinstaller
+pip install python-barcode pillow qrcode[pil] pyinstaller
 pyinstaller --onefile --name BarcodeMaker barcode_maker.py
-echo Done - see dist\BarcodeMaker.exe
+pyinstaller --onefile --name QRMaker qr_maker.py
+echo Done - see dist\BarcodeMaker.exe and dist\QRMaker.exe
